@@ -1,5 +1,5 @@
 import os
-import django_heroku
+
 
 
 from pathlib import Path
@@ -188,11 +188,5 @@ TEMPLATE = [
 
 
 
-# Add at the bottom of your settings.py
-django_heroku.settings(locals())
 
-# Ensure static files are properly served
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-CELERY_BROKER_URL = os.getenv('REDIS_URL', 'redis://localhost:6379/0')
