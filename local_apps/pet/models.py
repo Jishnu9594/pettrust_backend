@@ -22,12 +22,15 @@ class ContactForm(Main):
     
 
 
-
 class Testimonial(Main):
-    name = models.CharField(max_length=100,blank=True,null=True)
-    title = models.CharField(max_length=100,blank=True,null=True)
-    message = models.TextField(blank=True,null=True)
+    name = models.CharField(max_length=100, blank=True, null=True)
+    title = models.CharField(max_length=100, blank=True, null=True)
+    message = models.TextField(blank=True, null=True)
     image = models.ImageField(upload_to='testimonials/', null=True, blank=True)
+    rating = models.PositiveSmallIntegerField(
+        null=True, blank=True,
+        help_text="Rating out of 5 stars"
+    )  # Add a rating field for testimonials
 
     class Meta:
         ordering = ["-created_at", "-updated_at"]
@@ -36,6 +39,7 @@ class Testimonial(Main):
 
     def __str__(self):
         return self.name
+
 
 
 class Blog(Main):

@@ -13,8 +13,14 @@ class BlogSerializer(serializers.ModelSerializer):
 class TestimonialSerializer(serializers.ModelSerializer):
     class Meta:
         model = Testimonial
-        fields = ['name', 'title', 'message', 'image']
+        fields = ['name', 'title', 'message', 'image','rating']
 
+    def to_representation(self, instance):
+        representation = super().to_representation(instance)
+        if instance.image:
+            # Provide the relative path to the image
+            representation['image'] = instance.image.url  # This will return the full URL, adjust if needed
+        return representation
 
 
 class ContactFormSerializer(serializers.ModelSerializer):
