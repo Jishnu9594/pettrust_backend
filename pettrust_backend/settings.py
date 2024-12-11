@@ -160,8 +160,10 @@ INTERNAL_IPS = [
     "127.0.0.1",
 ]
 
-CELERY_BROKER_URL = "amqp://localhost:5672"
-CELERY_RESULT_BACKEND = "redis://localhost:6379"
+CELERY_BROKER_URL = os.getenv('CELERY_BROKER_URL', 'redis://red-ctchuia3esus73bg77l0:6379/0')
+CELERY_RESULT_BACKEND = os.getenv('CELERY_RESULT_BACKEND', 'redis://red-ctchuia3esus73bg77l0:6379/0')
+
+# Accept content types for Celery
 CELERY_ACCEPT_CONTENT = ["application/json"]
 CELERY_RESULT_SERIALIZER = "json"
 CELERY_TASK_SERIALIZER = "json"
