@@ -8,6 +8,7 @@ from rest_framework import status
 from .models import ContactForm
 from .serializers import ContactFormSerializer
 from local_apps.message_utility.views import mail_handler
+from local_apps.message_utility.uitility import async_send_mail
 # Create your views here.
 
 class BlogListView(generics.ListAPIView):
@@ -70,8 +71,6 @@ class TestimonialDeleteView(generics.DestroyAPIView):
     serializer_class = TestimonialSerializer
 
 
-
-
 class ContactFormCreateView(generics.CreateAPIView):
     queryset = ContactForm.objects.all()
     serializer_class = ContactFormSerializer
@@ -80,45 +79,44 @@ class ContactFormCreateView(generics.CreateAPIView):
         # Save the contact form data
         contact_form = serializer.save()
 
-        # Prepare the data for the emails
+        # Prepare data for emails
         context_data = {
-            'user_name': contact_form.name,
+            'user_name': contact_form.name or "Valued Customer",
             'appointment_time': f'{contact_form.date} {contact_form.time}',
-            'service': contact_form.service,
-            'phone': contact_form.phone,
-            'message': contact_form.message
+            'service': contact_form.service or "Not specified",
+            'phone': contact_form.phone or "Not provided",
+            'message': contact_form.message or "No message provided",
         }
 
-        # Send an appointment confirmation to the visitor (single email)
-        mail_handler(
-            mail_type='single',
-            to=[contact_form.email],  # Visitor's email
+        # Email to the visitor
+        async_send_mail(
             subject="Appointment Confirmation",
-            data=context_data,
             template="message_utility/appointment_confirmation.html",
+            context=context_data,
+            recipient_list=[contact_form.email],
         )
 
-        # Send hospital confirmation details (single email)
-        mail_handler(
-            mail_type='single',
-            to=['jishnuaswin025@gmail.com'],  # Hospital team email
+        # Email to the hospital team
+        async_send_mail(
             subject="New Appointment Scheduled",
-            data=context_data,
             template="message_utility/hospital_appointment_details.html",
+            context=context_data,
+            recipient_list=['jishnup9594@gmail.com'],  # Replace with actual email
         )
 
-        # Send lead collection report to backend team (multiple emails)
-        mail_handler(
-            mail_type='single',
-            to=['jishnuunnikrishnanp@gmail.com'],  # Backend team emails
+        # Email to the backend team
+        async_send_mail(
             subject="Lead Collection Report",
-            data=context_data,
             template="message_utility/leads_data.html",
+            context=context_data,
+            recipient_list=['jishnuaswin025@gmail.com'],  # Replace with actual email
         )
-
-        return contact_form
 
     def create(self, request, *args, **kwargs):
         response = super().create(request, *args, **kwargs)
-        response.data = {"message": "Appointment successfully scheduled!"}
-        return response
+        # Add a custom message to the response
+        response.data = {
+            "message": "Your appointment has been successfully scheduled! You will receive a confirmation email shortly.",
+            "appointment_details": response.data,
+        }
+        return Response(response.data, status=status.HTTP_201_CREATED)

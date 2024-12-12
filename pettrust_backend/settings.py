@@ -147,14 +147,14 @@ MEDIA_ROOT = BASE_DIR / 'media'
 CORS_ALLOW_ALL_ORIGINS = True
 
 
-EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-EMAIL_HOST = "smtp.gmail.com"
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'  # Replace with your SMTP server
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_USE_SSL = False
-EMAIL_HOST_USER = "jishnuaswin025@gmail.com"  # Replace with your Gmail address
-EMAIL_HOST_PASSWORD = "lvtc ejsw dqak luop"  # Replace with your Gmail password or App Password
-DEFAULT_FROM_EMAIL = "jishnuaswin025@gmail.com"  # This can be the same as EMAIL_HOST_USER or a different sender email
+EMAIL_HOST_USER = 'jishnuaswin025@gmail.com'  # Replace with your email
+EMAIL_HOST_PASSWORD = 'lvtc ejsw dqak luop'  # Replace with your email password
+DEFAULT_FROM_EMAIL = 'jishnuaswin025@gmail.com'
+
 
 INTERNAL_IPS = [
     "127.0.0.1",
