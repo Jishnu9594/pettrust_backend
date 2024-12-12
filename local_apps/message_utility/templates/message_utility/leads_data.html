@@ -6,86 +6,116 @@
     <title>Lead Collection Report</title>
     <style>
       body {
-        font-family: Arial, sans-serif;
-        color: #333;
-        background-color: #f4f4f9;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f4f7fb;
         margin: 0;
         padding: 0;
       }
       .container {
-        width: 100%;
         max-width: 800px;
-        margin: 0 auto;
-        padding: 20px;
-        background-color: #fff;
+        margin: 20px auto;
+        background: #ffffff;
         border-radius: 8px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       }
       .header {
+        background-color: darkblue;
+        color: #ffffff;
+        padding: 20px;
         text-align: center;
-        padding: 20px 0;
-        background-color: #2196f3;
-        color: #fff;
-        border-radius: 8px 8px 0 0;
+      }
+      .header img {
+        max-width: 150px;
+        margin-bottom: 10px;
+      }
+      .header h1 {
+        margin: 10px 0 0;
+        font-size: 24px;
       }
       .content {
         padding: 20px;
+        color: #333333;
+        font-size: 16px;
       }
-      .footer {
-        text-align: center;
-        padding: 10px 0;
-        font-size: 12px;
-        color: #777;
+      .content p {
+        margin: 10px 0;
+      }
+      .table-container {
+        margin: 20px 0;
+        overflow-x: auto;
       }
       .table {
         width: 100%;
         border-collapse: collapse;
-        margin-top: 20px;
+        font-size: 14px;
       }
       .table th,
       .table td {
-        padding: 10px;
-        border: 1px solid #ddd;
+        border: 1px solid #dddddd;
         text-align: left;
+        padding: 10px;
       }
       .table th {
-        background-color: #f2f2f2;
+        background-color: #f3f4f6;
+        font-weight: 600;
+      }
+      .footer {
+        text-align: center;
+        padding: 10px;
+        background-color: #f3f4f6;
+        color: #555555;
+        font-size: 14px;
+      }
+      .footer a {
+        color: #4caf50;
+        text-decoration: none;
       }
     </style>
   </head>
   <body>
     <div class="container">
       <div class="header">
+        <img
+          src="http://localhost:3000/assets/img/logo/pettrustlogo"
+          alt="Logo"
+        />
         <h1>Lead Collection Report</h1>
       </div>
       <div class="content">
         <p>Hello Backend Team,</p>
-        <p>Here are the new leads collected:</p>
-        <table class="table">
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Phone</th>
-              <th>Service</th>
-              <th>Appointment Time</th>
-              <th>Message</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>{{ data.user_name }}</td>
-              <td>{{ data.phone }}</td>
-              <td>{{ data.service }}</td>
-              <td>{{ data.appointment_time }}</td>
-              <td>{{ data.message }}</td>
-            </tr>
-          </tbody>
-        </table>
-        <p>Kindly review and process accordingly.</p>
+        <p>
+          We have collected a new lead for Pet Trust Hospital . Here are the
+          details:
+        </p>
+        <div class="table-container">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Service</th>
+                <th>Appointment Time</th>
+                <th>Message</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{{ data.user_name }}</td>
+                <td>{{ data.phone }}</td>
+                <td>{{ data.service }}</td>
+                <td>{{ data.appointment_time }}</td>
+                <td>{{ data.message }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Please review and process accordingly.</p>
         <p>Best regards,<br />Lead Collection Team</p>
       </div>
       <div class="footer">
-        <p>&copy; 2024 Lead Collection Service. All rights reserved.</p>
+        <p>&copy; 2024 INNOVATE_X LAB. All rights reserved.</p>
+        <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
       </div>
     </div>
   </body>
