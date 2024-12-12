@@ -6,75 +6,131 @@
     <title>Appointment Confirmation</title>
     <style>
       body {
-        font-family: Arial, sans-serif;
+        font-family: "Roboto", Arial, sans-serif;
         color: #333;
-        background-color: #f4f4f9;
+        background-color: #f9fafb;
         margin: 0;
         padding: 0;
+        line-height: 1.6;
       }
       .container {
         width: 100%;
         max-width: 600px;
-        margin: 0 auto;
-        padding: 20px;
-        background-color: #fff;
-        border-radius: 8px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        margin: 20px auto;
+        background: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
       }
       .header {
+        padding: 20px;
+        background-color: #1e88e5;
         text-align: center;
-        padding: 20px 0;
-        background-color: #4caf50;
-        color: #fff;
-        border-radius: 8px 8px 0 0;
+      }
+      .header img {
+        max-width: 150px;
+        margin-bottom: 10px;
+      }
+      .header h1 {
+        color: #ffffff;
+        margin: 0;
+        font-size: 24px;
       }
       .content {
-        padding: 20px;
+        padding: 20px 30px;
       }
-      .footer {
-        text-align: center;
-        padding: 10px 0;
-        font-size: 12px;
-        color: #777;
+      .content p {
+        margin: 15px 0;
       }
-      .button {
-        display: inline-block;
-        padding: 10px 20px;
-        background-color: #4caf50;
-        color: white;
-        text-decoration: none;
+      .content ul {
+        list-style: none;
+        padding: 0;
+      }
+      .content ul li {
+        margin-bottom: 10px;
+        padding: 10px;
+        background-color: #f1f5f9;
         border-radius: 5px;
       }
-      .button:hover {
-        background-color: #45a049;
+      .content ul li strong {
+        display: block;
+        font-weight: 600;
+      }
+      .cta-button {
+        display: inline-block;
+        margin: 20px 0;
+        padding: 12px 25px;
+        background-color: #1e88e5;
+        color: #ffffff;
+        text-decoration: none;
+        font-size: 16px;
+        border-radius: 5px;
+      }
+      .cta-button:hover {
+        background-color: #1669bb;
+      }
+      .footer {
+        padding: 15px 20px;
+        text-align: center;
+        background-color: #f1f5f9;
+        color: #555;
+        font-size: 12px;
+      }
+      .footer a {
+        color: #1e88e5;
+        text-decoration: none;
+      }
+      .footer a:hover {
+        text-decoration: underline;
       }
     </style>
   </head>
   <body>
     <div class="container">
       <div class="header">
+        <img
+          src="https://pet-trust.vercel.app/assets/img/logo/pettrustlogo"
+          alt="Company Logo"
+        />
         <h1>Appointment Confirmation</h1>
       </div>
       <div class="content">
         <p>Dear {{ data.user_name }},</p>
-        <p>Your appointment has been successfully scheduled as follows:</p>
+        <p>
+          Your appointment has been successfully scheduled. Here are the
+          details:
+        </p>
         <ul>
           <li>
-            <strong>Appointment Time:</strong> {{ data.appointment_time }}
+            <strong>Appointment Time:</strong>
+            {{ data.appointment_time }}
           </li>
-          <li><strong>Service:</strong> {{ data.service }}</li>
-          <li><strong>Phone:</strong> {{ data.phone }}</li>
-          <li><strong>Message:</strong> {{ data.message }}</li>
+          <li>
+            <strong>Service:</strong>
+            {{ data.service }}
+          </li>
+          <li>
+            <strong>Phone:</strong>
+            {{ data.phone }}
+          </li>
+          <li>
+            <strong>Message:</strong>
+            {{ data.message }}
+          </li>
         </ul>
         <p>
-          If you have any questions or need to reschedule, please contact us.
+          If you have any questions or need to reschedule, please don't hesitate
+          to contact us.
         </p>
+        <a href="#" class="cta-button">View Appointment Details</a>
         <p>We look forward to seeing you soon!</p>
-        <p>Best regards,<br />Appointment Team</p>
-        <p><a href="#" class="button">View Appointment Details</a></p>
+        <p>Best regards,<br />The Appointment Team</p>
       </div>
       <div class="footer">
-        <p>&copy; 2024 Appointment Service. All rights reserved.</p>
+        <p>
+          &copy; 2024 Appointment Service. All rights reserved. |
+          <a href="#">Privacy Policy</a> | <a href="#">Contact Us</a>
+        </p>
       </div>
     </div>
   </body>
