@@ -27,3 +27,9 @@ class ContactFormSerializer(serializers.ModelSerializer):
     class Meta:
         model = ContactForm
         fields = ['name', 'phone', 'service', 'email', 'date', 'time', 'message']
+
+
+class GetinTouchSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = GetinTouch
+        fields = ['name', 'email', 'subject', 'message']

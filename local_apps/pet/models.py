@@ -57,3 +57,18 @@ class Blog(Main):
     def __str__(self):
         return self.title
 
+
+class GetinTouch(Main):
+    name = models.CharField(max_length=255,blank=True,null=True)
+    email = models.EmailField(blank=True,null=True)
+    subject = models.CharField(max_length=255,blank=True,null=True)
+    message = models.TextField(blank=True,null=True)
+    submitted_at = models.DateTimeField(auto_now_add=True,blank=True,null=True)
+
+    class Meta:
+        ordering = ["-created_at", "-updated_at"]
+        verbose_name = 'GetinTouch'
+        verbose_name_plural = 'GetinTouchs'
+
+    def __str__(self):
+        return f"{self.name} - {self.subject}"

@@ -120,3 +120,18 @@ class ContactFormCreateView(generics.CreateAPIView):
             "appointment_details": response.data,
         }
         return Response(response.data, status=status.HTTP_201_CREATED)
+    
+
+
+class GetinTouchFormView(generics.CreateAPIView):
+        queryset = GetinTouch.objects.all()
+        serializer_class = GetinTouchSerializer
+
+        def create(self, request, *args, **kwargs):
+            serializer = self.get_serializer(data=request.data)
+            serializer.is_valid(raise_exception=True)
+            self.perform_create(serializer)
+            return Response(
+            {"message": "Your message has been submitted successfully!"},
+            status=status.HTTP_201_CREATED
+        )
