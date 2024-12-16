@@ -23,6 +23,7 @@ ALLOWED_HOSTS = ['pettrust-backend-1wzw.onrender.com', 'localhost', '127.0.0.1']
 # Application definition
 
 DEFAULT_APPS = [
+       'jazzmin',
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
