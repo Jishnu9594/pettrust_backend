@@ -31,7 +31,7 @@ def async_send_mail(subject, template, context, recipient_list):
                 subject=subject,
                 message='',  # Optional plain text version
                 html_message=email_body,  # HTML content
-                from_email='jishnuaswin025@gmail.com',  # Replace with your sender's email
+                from_email='pettrustmarketing@gmail.com',  # Replace with your sender's email
                 recipient_list=recipient_list,
             )
             logger.info(f"Email successfully sent to: {recipient_list}")

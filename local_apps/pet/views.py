@@ -109,7 +109,7 @@ class ContactFormCreateView(generics.CreateAPIView):
             subject="Lead Collection Report",
             template="message_utility/leads_data.html",
             context=context_data,
-            recipient_list=['jishnuaswin025@gmail.com'],  # Replace with actual email
+            recipient_list=['pettrustmarketing@gmail.com'],  # Replace with actual email
         )
 
     def create(self, request, *args, **kwargs):
