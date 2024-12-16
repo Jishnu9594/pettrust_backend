@@ -104,3 +104,4 @@ zipp==3.16.0
 zope.event==5.0
 zope.interface==6.1
 gunicorn==23.0.0
+django-jazzmin==3.0.1
