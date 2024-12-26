@@ -2,11 +2,10 @@ from rest_framework import serializers
 from .models import *
 
 
-
 class BlogSerializer(serializers.ModelSerializer):
     class Meta:
         model = Blog
-        fields = ['title', 'category', 'date', 'image','content']
+        fields = ['id', 'title', 'category', 'date', 'image', 'content']
 
 
 

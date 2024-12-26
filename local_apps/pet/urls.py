@@ -8,11 +8,11 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('blogs/', BlogListView.as_view(), name='blog-list'),
-    path('blogs/<int:id>/', BlogDetailView.as_view(), name='blog-detail'),
+    path('blogs/<uuid:pk>/', BlogDetailView.as_view(), name='blog-detail'),
     path('blogs/create/', BlogCreateView.as_view(), name='blog-create'),
     path('blogs/update/<int:id>/', BlogUpdateView.as_view(), name='blog-update'),
     path('blogs/delete/<int:id>/', BlogDeleteView.as_view(), name='blog-delete'),
-     path('testimonials/', TestimonialListView.as_view(), name='testimonial-list'),
+    path('testimonials/', TestimonialListView.as_view(), name='testimonial-list'),
     path('testimonials/create/', TestimonialCreateView.as_view(), name='testimonial-create'),
     path('testimonials/<int:pk>/', TestimonialRetrieveView.as_view(), name='testimonial-retrieve'),
     path('testimonials/<int:pk>/update/', TestimonialUpdateView.as_view(), name='testimonial-update'),

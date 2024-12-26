@@ -19,7 +19,7 @@ class BlogListView(generics.ListAPIView):
 class BlogDetailView(generics.RetrieveAPIView):
     queryset = Blog.objects.all()
     serializer_class = BlogSerializer
-    lookup_field = 'id'  # or you can use 'pk' if you prefer
+    lookup_field = 'pk'  # Maps to the 'id' field in the model
 
 # View to create a new blog
 class BlogCreateView(generics.CreateAPIView):
@@ -30,13 +30,13 @@ class BlogCreateView(generics.CreateAPIView):
 class BlogUpdateView(generics.UpdateAPIView):
     queryset = Blog.objects.all()
     serializer_class = BlogSerializer
-    lookup_field = 'id'  # or 'pk'
+    lookup_field = 'pk'  # or 'pk'
 
 # View to delete a blog
 class BlogDeleteView(generics.DestroyAPIView):
     queryset = Blog.objects.all()
     serializer_class = BlogSerializer
-    lookup_field = 'id'  # or 'pk'
+    lookup_field = 'pk'  # or 'pk'
 
 
 
