@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Appointment Confirmation</title>
+    <title>Booking Details</title>
     <style>
       body {
         font-family: "Roboto", Arial, sans-serif;
@@ -92,17 +92,17 @@
           src="https://pet-trust.vercel.app/assets/img/logo/pettrustlogo"
           alt="Company Logo"
         />
-        <h1>Appointment Confirmation</h1>
+        <h1>Booking Details</h1>
       </div>
       <div class="content">
         <p>Dear {{ data.user_name }},</p>
         <p>
-          Your appointment has been successfully scheduled. Here are the
-          details:
+          Kindly wait for the booking confirmation. One of our team members will
+          contact you soon.
         </p>
         <ul>
           <li>
-            <strong>Appointment Time:</strong>
+            <strong>Requested Appointment Time:</strong>
             {{ data.appointment_time }}
           </li>
           <li>
@@ -114,16 +114,14 @@
             {{ data.phone }}
           </li>
           <li>
-            <strong>Message:</strong>
+            <strong>Additional Message:</strong>
             {{ data.message }}
           </li>
         </ul>
         <p>
-          If you have any questions or need to reschedule, please don't hesitate
-          to contact us.
+          Thank you for choosing us. If you have any questions or need further
+          assistance, please don't hesitate to contact us.
         </p>
-        <a href="#" class="cta-button">View Appointment Details</a>
-        <p>We look forward to seeing you soon!</p>
         <p>Best regards,<br />The Pet Trust Team</p>
       </div>
       <div class="footer">

@@ -116,7 +116,7 @@ class ContactFormCreateView(generics.CreateAPIView):
         response = super().create(request, *args, **kwargs)
         # Add a custom message to the response
         response.data = {
-            "message": "Your appointment has been successfully scheduled! You will receive a confirmation email shortly.",
+              "message": "Kindly wait for confirmation. Our team will contact you shortly. Thank you for choosing us. - Pet Trust Team",
             "appointment_details": response.data,
         }
         return Response(response.data, status=status.HTTP_201_CREATED)
