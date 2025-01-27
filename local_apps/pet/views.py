@@ -101,7 +101,7 @@ class ContactFormCreateView(generics.CreateAPIView):
             subject="New Appointment Scheduled",
             template="message_utility/hospital_appointment_details.html",
             context=context_data,
-            recipient_list=['jishnup9594@gmail.com'],  # Replace with actual email
+            recipient_list=['pettrusthospitalappointments@gmail.com'],  # Replace with actual email
         )
 
         # Email to the backend team
